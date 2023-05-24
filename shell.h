@@ -33,6 +33,7 @@ char *_strcat(char *dest, const char *src);
 char *add_end(char *dest, const char *cmd);
 void env(void);
 int _putchar(char c);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 
 #endif
