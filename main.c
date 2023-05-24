@@ -12,7 +12,7 @@ void env(void);
  */
 int main(void)
 {
-	int status;
+	int status, i, flag = 0;
 	char *cmd;
 	char **args;
 
@@ -21,6 +21,23 @@ int main(void)
 		if (cmd == NULL)
 		{
 			break;
+		}
+		if (cmd[0] == ' ')
+		{
+			flag = 1;
+			for (i = 0; cmd[i]; i++)
+			{
+				if (!((cmd[i]) == ' '))
+				{
+					flag = 0;
+				}
+			}
+		}
+		if (flag == 1)
+		{
+			flag = 0;
+			free(cmd);
+			continue;
 		}
 		args = tokenize(cmd);
 		if (args == NULL)
