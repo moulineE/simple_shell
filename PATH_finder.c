@@ -1,14 +1,12 @@
 #include "shell.h"
-
 char *get_path(void);
 char *_getenv(const char *name);
 char *find_path(char *cmd);
 char *add_end(char *dest, const char *cmd);
-
 /**
  * get_path - Returns the value of the PATH enviroment variable.
  *
- * Return: the value of $PATH.
+ * Return: (Success)the value of $PATH.
  */
 char *get_path(void)
 {
@@ -40,7 +38,7 @@ char *_getenv(const char *name)
  * find_path - find the path of an exe
  * @cmd: the exe to find
  *
- * Return: the path of cmd
+ * Return: the path of cmd, or NULL if doesnt exist
  */
 char *find_path(char *cmd)
 {
@@ -91,7 +89,7 @@ char *find_path(char *cmd)
  * @dest: the path
  * @cmd: the exe
  *
- * Return the exe with it path
+ * Return: the exe with it path
  */
 char *add_end(char *dest, const char *cmd)
 {
