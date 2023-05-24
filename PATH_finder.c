@@ -3,7 +3,7 @@
 char *get_path(void);
 char *_getenv(const char *name);
 char *find_path(char *cmd);
-char *add_end(char *dest , const char *cmd);
+char *add_end(char *dest, const char *cmd);
 
 /**
  * get_path - Returns the value of the PATH enviroment variable.
@@ -69,7 +69,7 @@ char *find_path(char *cmd)
 			if (stat_ret == 0)
 			{
 				free_tokens(dir);
-				cmd_path = malloc(sizeof(char) * (_strlen(buffer) + 1 ));
+				cmd_path = malloc(sizeof(char) * (_strlen(buffer) + 1));
 				if (cmd_path == NULL)
 				{
 					return (NULL);
@@ -83,7 +83,7 @@ char *find_path(char *cmd)
 	{
 		free_tokens(dir);
 	}
-	return(NULL);
+	return (NULL);
 }
 
 /**
@@ -93,7 +93,7 @@ char *find_path(char *cmd)
  *
  * Return the exe with it path
  */
-char *add_end(char *dest , const char *cmd)
+char *add_end(char *dest, const char *cmd)
 {
 	char *ret = dest;
 
@@ -102,10 +102,10 @@ char *add_end(char *dest , const char *cmd)
 		dest++;
 	}
 	*dest++ = '/';
-	while(*cmd)
+	while (*cmd)
 	{
 		*dest++ = *cmd++;
 	}
 	*dest = '\0';
-	 return (ret);
+	return (ret);
 }
