@@ -32,11 +32,11 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 char *get_path(void);
 char *_getenv(const char *name);
 extern char **environ;
-char *_strcat(char *dest, const char *src);
+char *_strcat(char *dest, char *src);
 char *add_end(char *dest, const char *cmd);
 void env(void);
 int _putchar(char c);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-
+void _errputs(char *str);
 
 #endif

@@ -27,7 +27,7 @@ int execute(char **argv)
 	}
 	if (id == -1)
 	{
-		perror(argv[0]);
+		_errputs(argv[0]);
 		free_tokens(argv);
 		free_last_input();
 	}
@@ -45,7 +45,7 @@ int execute(char **argv)
 		}
 		if (execve(path_name, argv, NULL) == -1)
 		{
-			perror("argv[0]: not found");
+			_errputs(argv[0]);
 			free_tokens(argv);
 			exit(EXIT_FAILURE);
 		}
