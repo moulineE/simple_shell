@@ -1,5 +1,10 @@
 #include"shell.h"
 #include<string.h>
+
+int main(void);
+void _cd(char **av);
+void env(void);
+
 /**
  * main - simple shell
  *
@@ -48,4 +53,67 @@ int main(void)
 		status = 1;
 		} while (status);
 		return (EXIT_SUCCESS);
+}
+/**
+ * _cd - change the current directory and update $PWD and $OLDPWD
+ * @av: the tokenized entry with the new directory
+ */
+void _cd(char **av)
+{
+	int ret;
+	char *dir = av[1], buff[4096];
+
+	getcwd(buff, 4096);
+	if (dir == NULL)
+	{
+		dir = _getenv("HOME");
+		if (dir == NULL)
+		{
+			_puts("cd : no home directory found\n");
+			return;
+		}
+		else
+		{
+			_puts(dir);
+		}
+	}
+	if (dir == '-')
+	{
+		dir = _getenv("OLDPWD");
+		if (dir == NULL)
+		{
+			perror("cd: OLDPWD not set");
+		}
+		else
+		{
+			_puts(dir);
+		}
+	}
+	ret = chdir(dir);
+
+	 /**
+	  * waiting for _setenv devlopment
+	  * if (ret =! -1)
+	  * {
+	  * _setenv(OLDPWD, buff, 1);
+	  * _setenv(PWD, dir, 1);
+	  * }
+	  */
+	if (ret == -1)
+	{
+		perror("cd");
+	}
+}
+/**
+ * env - print the env
+ */
+void env(void)
+{
+	int i;
+
+	for (i = 0; environ[i]; i++)
+	{
+		_puts(environ[i]);
+		_putchar('\n');
+	}
 }
