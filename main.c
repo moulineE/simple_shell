@@ -42,7 +42,7 @@ int main(void)
 			args = NULL;
 			continue;
 		}
-		if (strcmp(args[0], "env") == 0)
+		if (_strcmp(args[0], "env") == 0)
 		{
 			env();
 			continue;
