@@ -22,7 +22,7 @@ char **_strtok(char *cmd, const char *delim)
 	token = strtok(cmd, delim);
 	while (token)
 	{
-		token_list = _realloc(token_list, sizeof(token_list)
+		token_list = _realloc(token_list, sizeof(char *) * i
 				, sizeof(char *) * (i + 1));
 		if (token_list == NULL)
 		{
@@ -37,7 +37,7 @@ char **_strtok(char *cmd, const char *delim)
 		token = strtok(NULL, delim);
 		i++;
 	}
-	token_list = _realloc(token_list, sizeof(token_list)
+	token_list = _realloc(token_list, sizeof(char *) * i
 			, (i + 1) * sizeof(char *));
 	if (token_list == NULL)
 	{
