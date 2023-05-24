@@ -77,7 +77,7 @@ void _cd(char **av)
 			_puts(dir);
 		}
 	}
-	if (dir == '-')
+	if (dir[0] == '-' && dir[1] == 0)
 	{
 		dir = _getenv("OLDPWD");
 		if (dir == NULL)
