@@ -67,7 +67,7 @@ void free_tokens(char **ptr)
 
 	for (i = 0; ptr[i]; i++)
 	{
-		free(ptr[i])
+		free(ptr[i]);
 	}
 	free(ptr);
 }
