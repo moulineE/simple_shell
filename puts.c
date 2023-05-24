@@ -32,7 +32,10 @@ int _putchar(char c)
 {
 	return (write(STDOUT_FILENO, &c, 1));
 }
-
+/**
+ * _errputs - construct the error code
+ * @str: the exe not found
+ */
 void _errputs(char *str)
 {
 	char *str1;
